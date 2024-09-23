@@ -1,0 +1,20 @@
+{
+  "name": "13-backendcrudcafe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongoDB",
+    "ExpressJS",
+    "Mongoose"
+  ],
+  "author": "Gabriel Haurane",
+  "license": "ISC",
+  "description": "Operaciones de CRUD para el backend del proyecyo crud cafe",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
