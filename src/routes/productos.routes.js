@@ -9,5 +9,5 @@ import { crearProducto, leerPrueba, listarProductos, obtenerProductos } from "..
 const productoRouter = Router();
 productoRouter.route('/prueba').get(leerPrueba)
 productoRouter.route('/productos').post(crearProducto).get(listarProductos)
-productoRouter.route('/productos/:id').get()
+productoRouter.route('/productos/:id').get(obtenerProductos)
 export default productoRouter;
