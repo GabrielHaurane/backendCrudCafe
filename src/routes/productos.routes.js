@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { crearProducto, leerPrueba } from "../controllers/producto.controllers.js";
+import { crearProducto, leerPrueba, listarProductos } from "../controllers/producto.controllers.js";
 
 // app.get('/prueba', (req, res)=>{
 //     // console.log('desde la funcion de prueba')
@@ -8,6 +8,6 @@ import { crearProducto, leerPrueba } from "../controllers/producto.controllers.j
 
 const productoRouter = Router();
 productoRouter.route('/prueba').get(leerPrueba)
-productoRouter.route('/productos').post(crearProducto)
+productoRouter.route('/productos').post(crearProducto).get(listarProductos)
 
 export default productoRouter;
