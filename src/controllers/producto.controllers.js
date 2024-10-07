@@ -1,11 +1,18 @@
+import { validationResult } from "express-validator"
 import Producto from "../database/model/producto.js"
-
 export const leerPrueba = (req, res)=> {
     res.send('desde el backend del proyecto crudCafe')
 }
 export const crearProducto = async(req, res)=> {
     try {
         // validar los datos para crear el producto
+        const errors = validationResult(req)
+        // errors.isEmpty() => true: no se produjeron errores: false => hay errores
+        // quiero saber si hay errores, quiero saber si errors no esta vacio
+        // if(!false)=== true
+        if (!errors.isEmpty()) {
+            return res.status(400).json(errors.array())
+        }
         // pedir el modelo Producto que genere uno nuevo
         console.log(req.body);
         const productoNuevo = new Producto(req.body);
