@@ -30,18 +30,32 @@ productoRouter
         .withMessage(
           "El nombre del producto debe contener como minimo 2 y como maximo 50 caracteres"
         ),
-        check("precio")
+      check("precio")
         .notEmpty()
         .withMessage("El precio es un dato obligatorio")
         .isNumeric()
         .withMessage("El precio debe ser un numero")
-        .custom((valorPrecio)=>{
-            if (valorPrecio >= 50 && valorPrecio <= 20000) {
-                return true;
-            } else {
-                throw new Error("El precio debe estar entre $50 y $20000 inclusive");
-            }
-        })
+        .custom((valorPrecio) => {
+          if (valorPrecio >= 50 && valorPrecio <= 20000) {
+            return true;
+          } else {
+            throw new Error(
+              "El precio debe estar entre $50 y $20000 inclusive"
+            );
+          }
+        }),
+      check("imagen")
+        .notEmpty()
+        .withMessage("La imagen es un dato obligatorio")
+        .matches(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)/)
+        .withMessage(
+          "La imagen debe ser una URL valida y terminar en alguna de las siguientes extensiones: jpg, jpeg, gif o png"
+        ),
+        check("categoria")
+        .notEmpty()
+        .withMessage("El categoria es un dato obligatorio")
+        .isIn(['Infusiones','Batidos','Dulce','Salado'])
+        .withMessage("la categoria debe contener una de las sig opciones: Infusiones ,Batidos ,Dulce ,Salado")
     ],
     crearProducto
   )
