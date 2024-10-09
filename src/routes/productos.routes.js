@@ -19,14 +19,12 @@ productoRouter.route("/prueba").get(leerPrueba);
 productoRouter
   .route("/productos")
   .post(
-    [validacionProducto
-      ],
-    crearProducto
+    [validacionProducto], crearProducto
   )
   .get(listarProductos);
 productoRouter
   .route("/productos/:id")
   .get(obtenerProductos)
   .delete(borrarProducto)
-  .put(editarProducto);
+  .put([validacionProducto], editarProducto);
 export default productoRouter;

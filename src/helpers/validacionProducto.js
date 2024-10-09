@@ -1,4 +1,5 @@
 import { check } from "express-validator";
+import resultadoValidacion from "./resultadoValidacion.js";
 const validacionProducto = [
   check("nombreProducto")
     .notEmpty()
@@ -57,7 +58,7 @@ const validacionProducto = [
       "La descripcion del producto debe contener como minimo 10 y como maximo 250 caracteres"
     ),
   
-  // (req,res, next)=> validationResult
+  (req,res, next)=> resultadoValidacion(req, res, next)
 ];
 
 export default validacionProducto;
