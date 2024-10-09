@@ -6,6 +6,8 @@ const usuarioSchema = new Schema({
         required:true,
         lowercase:true,
         trim:true,
+        minLength:10,
+        maxLength:30,
         unique:true
     },
     contrasenia:{
